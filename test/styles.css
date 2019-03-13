@@ -1,0 +1,9 @@
+body {
+  text-align: center;
+  background: #212121;
+}
+
+.ascii {
+  font-family: 'Input', monospace;
+  color: #aafb66;
+}
