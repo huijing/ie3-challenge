@@ -198,6 +198,7 @@ p span {
 
   .item3 span {
     color: coral;
+    font-size: inherit;
   }
 
   .item4 {
