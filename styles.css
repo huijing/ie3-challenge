@@ -1,9 +1,238 @@
 body {
-  text-align: center;
-  background: #212121;
+  color: white;
 }
 
-.ascii {
-  font-family: 'Input', monospace;
-  color: #aafb66;
+table {
+  text-align: center;
+}
+
+h1 {
+  color: purple;
+  text-align: center;
+}
+
+img {
+  text-align: center;
+}
+
+a { color: yellow }
+a:visited { color: silver }
+
+li {
+  font-size: 120%;
+}
+
+p {
+  font-size: 120%;
+  width: 640px;
+}
+
+p span {
+  text-align: right;
+  color: green;
+  font-size: smaller;
+}
+
+@supports (display:contents) {
+  @font-face {
+    font-family: 'Fascinate';
+    src: url('fonts/fascinateinline-regular.woff2') format('woff2'),
+         url('fonts/fascinateinline-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-size: calc(1em + 0.5vw);
+  }
+
+  header {
+    height: 100vh;
+    display: flex;
+    background-color:black;
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px), radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px), radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px), radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  }
+
+  table,
+  tbody {
+    display: contents;
+  }
+
+  tr {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: calc(2em + 3vw);
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+    line-height: initial;
+    font-size: inherit;
+  }
+
+  .lg-title {
+    display: none;
+  }
+
+  p {
+    width: initial;
+    line-height: 1.4;
+    margin-bottom: 0.5em;
+  }
+
+  li {
+    line-height: 1.4;
+  }
+
+  section {
+    height: 100vh;
+    display: flex;
+  }
+
+  section:nth-of-type(odd) {
+    background-color:#556;
+    background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+    background-size:80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+  }
+
+  section:nth-of-type(even) {
+    background-color:#444454;
+    background-image: radial-gradient(circle at 100% 150%, #444454 24%, #9999a8 25%, #9999a8 28%, #444454 29%, #444454 36%, #9999a8 36%, #9999a8 40%, transparent 40%, transparent), radial-gradient(circle at  150%, #444454 24%, #9999a8 25%, #9999a8 28%, #444454 29%, #444454 36%, #9999a8 36%, #9999a8 40%, transparent 40%, transparent), radial-gradient(circle at 50%  100%, #9999a8 10%, #444454 11%, #444454 23%, #9999a8 24%, #9999a8 30%, #444454 31%, #444454 43%, #9999a8 44%, #9999a8 50%, #444454 51%, #444454 63%, #9999a8 64%, #9999a8 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, #9999a8 5%, #444454 6%, #444454 15%, #9999a8 16%, #9999a8 20%, #444454 21%, #444454 30%, #9999a8 31%, #9999a8 35%, #444454 36%, #444454 45%, #9999a8 46%, #9999a8 49%, transparent 50%, transparent), radial-gradient(circle at 0    50%, #9999a8 5%, #444454 6%, #444454 15%, #9999a8 16%, #9999a8 20%, #444454 21%, #444454 30%, #9999a8 31%, #9999a8 35%, #444454 36%, #444454 45%, #9999a8 46%, #9999a8 49%, transparent 50%, transparent);
+    background-size: 100px 50px;
+  }
+
+  li[class] {
+    list-style: none;
+    position: relative;
+    padding-left: 1em;
+    display: flex;
+    align-items: center;
+  }
+
+  li[class]:before {
+    content: "";
+    font-size: 0.75em;
+    margin-right: 0.5em;
+  }
+  
+  li.horror:before { content: "😱" }
+  li.notes:before { content: "📋" }
+
+  section > div {
+    margin: auto;
+    max-width: 40em;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1em;
+  }
+
+  .blend {
+    position: relative;
+    background-image: url('img/trakai.jpg');
+    background-size: cover;
+    background-position: center 53%;
+  }
+
+  .blend h2 {
+    color: black;
+    background-color: white;
+    mix-blend-mode: screen; 
+    width: 100%;height: 100%;
+    text-align: center;
+    font-size: 300%;
+    font-family: 'Fascinate', sans-serif;
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    mix-blend-mode: multiply;
+    background-color: rgba(0,0,0,.1);
+  }
+
+  .page5 tr {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    text-align: initial;
+    align-items: center;
+  }
+
+  .page5 td {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: min-content auto min-content;
+    align-items: center;
+  }
+
+  [class^=item] {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+  }
+
+  .item1 {
+    grid-column: span 2;
+  }
+
+  .item2 {
+    grid-column: 2 / -1;
+    list-style-position: inside;
+  }
+
+  .item3 {
+    grid-column: 1 / -1;
+  }
+
+  .item3 span {
+    color: coral;
+  }
+
+  .item4 {
+    grid-row: 1;
+    grid-column: 2 / -1;
+  }
+
+  .item5 {
+    grid-row: 2;
+    grid-column: 1 / 3;
+    padding-left: 1em;
+  }
+
+  .item6 {
+    grid-row: 3;
+    grid-column: 2 / -1;
+  }
+
+  .pulse {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  hr {
+    display: none;
+  }
+
+  footer {
+    display: flex;
+  }
+
+  footer p {
+    margin: auto;
+  }
+}
+
+@keyframes pulse {
+  50% { color: greenyellow }
 }
