@@ -7,6 +7,11 @@ table {
   width: 100%;
 }
 
+td p,
+td li {
+  width: 100%;
+}
+
 h1 {
   color: purple;
   text-align: center;
@@ -23,13 +28,12 @@ img {
 a { color: yellow }
 a:visited { color: silver }
 
+p,
 li {
   font-size: 120%;
-}
-
-p {
-  font-size: 120%;
   width: 640px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 p span {
@@ -38,7 +42,25 @@ p span {
   font-size: smaller;
 }
 
-@supports (display:contents) {
+section > div {
+  text-align: center;
+}
+
+.blend {
+  display: none;
+}
+
+.lg-title {
+  margin-top: 1em;
+}
+
+@media screen and (min-width:0\0) and (min-resolution: +72dpi) {
+  audio {
+    display: none;
+  }
+}
+
+@supports (display: flex) {
   @font-face {
     font-family: 'Fascinate';
     src: url('fonts/fascinateinline-regular.woff2') format('woff2'),
@@ -65,16 +87,16 @@ p span {
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
   }
 
-  table,
-  tbody {
-    display: contents;
-  }
-
   tr {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
+  }
+
+  td p,
+  td li {
+    width: initial;
   }
 
   h1 {
@@ -91,19 +113,30 @@ p span {
     display: none;
   }
 
+  .blend {
+    display: block;
+  }
+
   p {
     width: initial;
+    margin: initial;
     line-height: 1.4;
     margin-bottom: 0.5em;
   }
 
   li {
+    width: initial;
+    margin: initial;
     line-height: 1.4;
   }
 
   section {
     height: 100vh;
     display: flex;
+  }
+
+  section > div {
+    text-align: initial;
   }
 
   section:nth-of-type(odd) {
@@ -143,32 +176,27 @@ p span {
     padding: 1em;
   }
 
-  .blend {
-    position: relative;
-    background-image: url('img/trakai.jpg');
-    background-size: cover;
-    background-position: center 53%;
+  hr {
+    display: none;
   }
 
-  .blend h2 {
-    color: black;
-    background-color: white;
-    mix-blend-mode: screen; 
-    width: 100%;height: 100%;
-    text-align: center;
-    font-size: 300%;
-    font-family: 'Fascinate', sans-serif;
+  footer {
+    display: flex;
   }
 
-  .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    mix-blend-mode: multiply;
-    background-color: rgba(0,0,0,.1);
+  footer p {
+    margin: auto;
   }
+}
 
+@supports (display: contents) {
+  table,
+  tbody {
+    display: contents;
+  }
+}
+
+@supports (display: grid) {
   .page5 tr {
     display: grid;
     grid-template-columns: 40% 60%;
@@ -222,23 +250,9 @@ p span {
     grid-row: 3;
     grid-column: 2 / -1;
   }
+}
 
-  .pulse {
-    animation: pulse 3s ease-in-out infinite;
-  }
-
-  hr {
-    display: none;
-  }
-
-  footer {
-    display: flex;
-  }
-
-  footer p {
-    margin: auto;
-  }
-
+@supports (writing-mode: vertical-rl) {
   .annoying {
     position: fixed;
     top: 0;
@@ -247,6 +261,40 @@ p span {
   }
 }
 
-@keyframes pulse {
-  50% { color: greenyellow }
+@supports (mix-blend-mode: screen) {
+  .blend {
+    position: relative;
+    background-image: url('img/trakai.jpg');
+    background-size: cover;
+    background-position: center 53%;
+  }
+
+  .blend h2 {
+    color: black;
+    background-color: white;
+    mix-blend-mode: screen; 
+    width: 100%;height: 100%;
+    text-align: center;
+    font-size: 300%;
+    font-family: 'Fascinate', sans-serif;
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    mix-blend-mode: multiply;
+    background-color: rgba(0,0,0,.1);
+  }
+}
+
+@supports (animation-name: pulse) {
+  .pulse {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    50% { color: greenyellow }
+  }
 }
